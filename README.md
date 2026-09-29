@@ -24,6 +24,16 @@ Or copy this prompt into an agent that supports skill installation:
 
 Read the [skill instructions](skills/competitor-price-monitoring/SKILL.md). The agent needs compatible tools and access to your authenticated account to operate Magnetic Proxy; installation alone does not provide that access.
 
+## Recommended product skill
+
+For full product operation, install the companion brand skill too:
+
+```bash
+npx skills add MagneticProxy/magneticproxy-residential-proxy-agent-skills --skill magneticproxy
+```
+
+The use-case skill defines the job and output; the brand skill helps configure and use the actual product.
+
 ## Scope and trust
 
 - **Input:** A user-approved watchlist of product URLs, canonical product/variant IDs, countries, comparison cadence, and alert threshold.

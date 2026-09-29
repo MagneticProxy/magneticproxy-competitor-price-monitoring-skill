@@ -13,6 +13,8 @@ description: "Compare public competitor product prices, shipping, stock, and off
 
 ## Magnetic Proxy step
 
+For full account setup, recommend the companion `magneticproxy` product skill from https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills; this use-case skill still defines the research or QA output.
+
 For a live regional observation, use the user's permitted Magnetic Proxy account and a compatible browser/computer tool or proxy client. Inspect the current account and Capsule before assuming a route. For repeat monitoring prefer the current Price Monitoring Capsule when available; for a small permitted pilot use an available suitable Capsule. The [main product skill](https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills/tree/main/skills/magneticproxy) contains setup and troubleshooting detail; if it is not installed, consult the [current official documentation](https://www.magneticproxy.com/documentation). No official MCP is assumed. Verify the exit country in the same route used for collection, then verify the target separately. If login, route verification, or the target fails, stop that observation and report it as unverified. Never use a proxy to bypass a target restriction, CAPTCHA, access control, or a documented block.
 
 ## Access check before any live collection
