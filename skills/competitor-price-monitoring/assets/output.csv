@@ -1,1 +1,1 @@
-product_id,variant_id,store,source_url,final_url,requested_country,observed_country,observed_at_utc,raw_price,currency,shipping,tax_context,seller,availability,promotion_context,evidence,confidence,comparison_status
+product_id,variant_id,store,source_url,final_url,requested_country,observed_country,observed_at_utc,raw_price,currency,shipping,tax_context,seller,availability,promotion_context,evidence,confidence,comparison_status,normalized_price,normalization_rule

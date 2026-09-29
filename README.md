@@ -81,3 +81,7 @@ This repository documents a specific task; it does not guarantee search rankings
 ## License
 
 Original instructions and code are available under the [MIT License](LICENSE). Product subscriptions, service access and third-party data remain subject to their respective terms. This license does not grant trademark rights or permission to collect third-party content.
+
+## Latest QA review
+
+Read the [2026-09-29 QA review](QA-2026-09-29.md) for executed checks, repaired behavior, consolidation decisions and the exact live-testing boundary.
