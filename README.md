@@ -1,5 +1,7 @@
 # Competitor Price Monitoring by Country with Magnetic Proxy
 
+**Official Magnetic Proxy agent skills** · Published and maintained by [MagneticProxy](https://github.com/MagneticProxy), the official Magnetic Proxy GitHub organization. [Visit Magnetic Proxy](https://www.magneticproxy.com/).
+
 A country-by-country price watchlist with confirmed changes, source URLs, timestamps, and reasons when a comparison is unsafe. This Agent Skill helps **retail, ecommerce, and pricing teams tracking the same sku or variant across stores and countries** prepare an evidence-based result using Magnetic Proxy for authorized residential routing and regional observations.
 
 

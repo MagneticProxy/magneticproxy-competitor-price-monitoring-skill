@@ -2,6 +2,9 @@
 name: competitor-price-monitoring
 description: "Compare public competitor product prices, shipping, stock, and offer context across countries with Magnetic Proxy. Use for recurring price monitoring and evidence-backed change alerts, not for Amazon-only product discovery."
 license: MIT
+metadata:
+  author: MagneticProxy
+  repository: https://github.com/MagneticProxy/magneticproxy-competitor-price-monitoring-skill
 ---
 
 # Competitor Price Monitoring by Country with Magnetic Proxy
