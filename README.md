@@ -1,56 +1,83 @@
-# Competitor Price Monitoring by Country with Magnetic Proxy | Agent Skill
+# Competitor Price Monitoring by Country with Magnetic Proxy
 
-A country-by-country price watchlist with confirmed changes, source URLs, timestamps, and reasons when a comparison is unsafe.
+A country-by-country price watchlist with confirmed changes, source URLs, timestamps, and reasons when a comparison is unsafe. This Agent Skill helps **retail, ecommerce, and pricing teams tracking the same sku or variant across stores and countries** prepare an evidence-based result using Magnetic Proxy for authorized residential routing and regional observations.
 
-This public Agent Skill addresses **competitor price monitoring** with Magnetic Proxy residential routing where the job requires it. It is an independent use-case package, not an MCP or a claim that the product has completed an authenticated task.
 
-**Product role:** Magnetic Proxy is the routing and observed-location layer for any live regional check in this skill. Without an authorized account and verified exit, the agent may prepare or analyze supplied data but cannot claim a live regional observation. The proxy does not grant data-access rights.
 
-## What you can ask an agent to do
+## What you get
 
-> Monitor the same 500 ml product on three public stores in the US and Colombia. Alert me when the comparable displayed total changes by at least 5%.
+- Find comparable price changes across stores and markets
+- Separate genuine changes from different packs, sellers and promotions
+- Deliver a dated watchlist with evidence and a proposed next check
 
-**Example result (illustrative, not a live run):** Watchlist: 6 expected observations; 4 comparable, 1 blocked, 1 variant mismatch. US Store A: USD 24.00 → USD 26.00 (+8.3%), rechecked at 2026-09-28 15:00 UTC; evidence: URL and saved page excerpt. Colombia Store B: no comparison because the 2-pack variant differs. No external alert sent.
+Start with [the worked example](skills/competitor-price-monitoring/references/worked-example.md), the [deliverable template](skills/competitor-price-monitoring/assets/deliverable-template.md) and the [output columns](skills/competitor-price-monitoring/assets/output.csv).
 
-## Install
+## Install and start
+
+Copy this prompt into an agent that supports skill installation:
+
+> Review and install `competitor-price-monitoring` from https://github.com/MagneticProxy/magneticproxy-competitor-price-monitoring-skill and the `magneticproxy` product skill from https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills. Confirm which files were installed and whether you can operate my browser or product account. Help me with: [my task]. Use existing capacity first; guide signup or recommend a suitable current plan when needed, and obtain my approval before a paid purchase. Start with a bounded sample and show the observed results and unresolved work.
+
+Or use the Skills CLI from your project folder:
 
 ```bash
 npx skills add MagneticProxy/magneticproxy-competitor-price-monitoring-skill --skill competitor-price-monitoring
-```
-
-Or copy this prompt into an agent that supports skill installation:
-
-> Install the `competitor-price-monitoring` skill from https://github.com/MagneticProxy/magneticproxy-competitor-price-monitoring-skill and use it to help with: [describe your task]. Confirm installation, ask for my authorized inputs, and show me the proposed output before any external action.
-
-Read the [skill instructions](skills/competitor-price-monitoring/SKILL.md). The agent needs compatible tools and access to your authenticated account to operate Magnetic Proxy; installation alone does not provide that access.
-
-## Recommended product skill
-
-For full product operation, install the companion brand skill too:
-
-```bash
 npx skills add MagneticProxy/magneticproxy-residential-proxy-agent-skills --skill magneticproxy
 ```
 
-The use-case skill defines the job and output; the brand skill helps configure and use the actual product.
+Select your agent when prompted. For a non-interactive installation, add the appropriate agent flag, for example `--agent codex` or `--agent claude-code`. Review installed instructions and scripts before running them. Installation does not grant browser tools, credentials or a subscription. A plain chat can read the instructions but may not install or operate the product.
 
-## Scope and trust
+The complete skill folder is the canonical package, including references and templates. A lone downloaded `SKILL.md` omits those files; use the repository installation or copy the complete folder into your agents supported skills directory. An MCP is not required or assumed.
 
-- **Input:** A user-approved watchlist of product URLs, canonical product/variant IDs, countries, comparison cadence, and alert threshold.
-- **Output:** A country-by-country price watchlist with confirmed changes, source URLs, timestamps, and reasons when a comparison is unsafe.
-- **Product:** [Magnetic Proxy Price Monitoring Capsule](https://www.magneticproxy.com/capsules/price-monitoring) and the [main product skill](https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills).
-- **Current verification:** skill format and installation discovery are tested locally. An authenticated live product run has not yet been demonstrated for this repository.
+## From install to first useful result
 
-The skill does not authorize purchases, scraping behind access controls, email sending, CRM writes, or publication. Third-party sites and product interfaces can change; the agent must observe the current state and report uncertainty.
+1. **Install and connect.** Install this skill and the `magneticproxy` product skill. Confirm your agent has browser/computer control or an authorized proxy client; installation alone provides no account access.
+2. **Log in or sign up.** Open [Magnetic Proxy](https://app.magneticproxy.com/#/my-proxies). Reuse your account; otherwise use the visible Sign up flow. Complete authentication yourself without pasting credentials into the conversation.
+3. **Choose capacity for the job.** Inspect available Capsules and GB. For ongoing offer monitoring, assess Price Monitoring; for authorized campaign landing QA, assess General Purpose Premium. Start with existing suitable capacity. If capacity is insufficient, compare [current plans](https://www.magneticproxy.com/pricing) and recommend the smallest suitable option from observed pilot usage. Follow its current Choose Plan checkout link; do not hardcode a price, discount or checkout token.
+4. **Approve any purchase.** Show Capsule, capacity, billing period and current cost before purchase. Continue paid checkout only when the user explicitly authorizes that transaction. A skill installation is not purchase approval.
+5. **Prove the route.** Configure the current product, verify the exit in the same browser/client and run a bounded permitted sample. Expand only within the agreed scope. If the approved data route does not need a proxy, explain that and do not invent a purchase requirement.
+
+## Try this task
+
+> Monitor the same 500 ml product on three public stores in the US and Colombia. Alert me when the comparable displayed total changes by at least 5%.
+
+**Bring:** A user-approved watchlist of product URLs, canonical product/variant IDs, countries, comparison cadence, and alert threshold.
+
+**Illustrative result:** Report +8.33% on the displayed item price; do not call it a landed total when shipping is unknown. A 2-pack offer and a blocked observation stay outside the price comparison.
+
+Read the [complete workflow](skills/competitor-price-monitoring/SKILL.md) for source access, execution and decision rules.
+
+## Common questions
+
+### Can I compare prices in different currencies?
+
+Keep original currencies. A converted comparison needs an agreed FX source, rate timestamp and matching tax/shipping context. The lowest displayed number alone does not identify the cheapest offer.
+
+### Why use Magnetic Proxy here?
+
+Magnetic Proxy provides the configured geographic connection for permitted live regional checks. The skill adds comparable observations and a decision-ready deliverable. Supplied-data analysis can proceed without pretending that a live proxy check occurred.
+
+### Is signup or a paid plan required?
+
+An account is required to operate the product. Use available account capacity first. A paid plan is needed only when the requested operation requires capacity or features the account does not have; consult the current product pricing. Installing this repository does not start a paid subscription.
+
+### Has the live workflow been verified?
+
+Repository validation and installation checks cover packaging; the worked example uses synthetic inputs. A live workflow requires an authenticated account, an approved sample and an observed final result. See [QA and maintenance](QA.md) for the exact boundary.
 
 ## Access and privacy
 
 Check the destination’s terms, access permission, and rate limits before collection. A public URL and a successful proxy connection are not authorization to scrape. Stop on access denials or challenges; do not rotate to evade them. [Magnetic Proxy documentation](https://www.magneticproxy.com/documentation) explains routing and restricted targets.
 
-## Review checklist
+## Related resources and support
 
-1. Does the agent request the right inputs and distinguish this job from the other use cases?
-2. Does it make the product step observable and avoid inventing results?
-3. Does the output preserve source rows/URLs, time, uncertainty, and a clear decision for the user?
+- [Magnetic Proxy product skill](https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills) for setup and product operation.
+- [Magnetic Proxy Price Monitoring Capsule](https://www.magneticproxy.com/capsules/price-monitoring?utm_source=github&utm_medium=agent_skill&utm_campaign=competitor-price-monitoring) for product context.
+- [Report a reproducible issue](https://github.com/MagneticProxy/magneticproxy-competitor-price-monitoring-skill/issues) using redacted or synthetic examples. For account, billing or service issues, use support inside the product.
+- [Contribution guide](CONTRIBUTING.md) and [security guidance](SECURITY.md).
 
-Feedback and improvements can be filed as a GitHub issue in this repository.
+This repository documents a specific task; it does not guarantee search rankings, AI citations, delivery, platform access or commercial results. Third-party names identify the workflow and do not imply endorsement.
+
+## License
+
+Original instructions and code are available under the [MIT License](LICENSE). Product subscriptions, service access and third-party data remain subject to their respective terms. This license does not grant trademark rights or permission to collect third-party content.

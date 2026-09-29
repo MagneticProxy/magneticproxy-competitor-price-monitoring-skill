@@ -8,3 +8,9 @@ __pycache__/
 *.parquet
 data/
 outputs/
+
+__pycache__/
+*.pyc
+.env
+.env.*
+.DS_Store
