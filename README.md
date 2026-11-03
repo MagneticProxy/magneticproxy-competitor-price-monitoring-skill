@@ -24,22 +24,27 @@ Start with [the worked example](skills/competitor-price-monitoring/references/wo
 
 Copy this prompt into an agent that supports skill installation:
 
-> Review and install `competitor-price-monitoring` from https://github.com/MagneticProxy/magneticproxy-competitor-price-monitoring-skill and the `magneticproxy` product skill from https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills. Confirm which files were installed and whether you can operate my browser or product account. Help me with: [my task]. Use existing capacity first; guide signup or recommend a suitable current plan when needed, and obtain my approval before a paid purchase. Start with a bounded sample and show the observed results and unresolved work.
+> Review and install `competitor-price-monitoring` from https://github.com/MagneticProxy/magneticproxy-competitor-price-monitoring-skill. Start its included Magnetic Proxy product onboarding and help me with: [my task]. Reuse context and any suitable installed product skill or account; ask only for decisive missing information. Confirm what you can actually install or operate, use existing capacity first and obtain approval before any paid purchase. Begin with a bounded sample and report observed results and pending work.
 
 Or use the Skills CLI from your project folder:
 
 ```bash
 npx skills add MagneticProxy/magneticproxy-competitor-price-monitoring-skill --skill competitor-price-monitoring
-npx skills add MagneticProxy/magneticproxy-residential-proxy-agent-skills --skill magneticproxy
 ```
 
 Select your agent when prompted. For a non-interactive installation, add the appropriate agent flag, for example `--agent codex` or `--agent claude-code`. Review installed instructions and scripts before running them. Installation does not grant browser tools, credentials or a subscription. A plain chat can read the instructions but may not install or operate the product.
 
 The complete skill folder is the canonical package, including references and templates. A lone downloaded `SKILL.md` omits those files; use the repository installation or copy the complete folder into your agents supported skills directory. An MCP is not required or assumed.
 
+## Product setup is included
+
+Start with this use-case skill. During onboarding, your agent recommends and prepares the official [Magnetic Proxy product skill](https://github.com/MagneticProxy/magneticproxy-residential-proxy-agent-skills) for the product step, reusing it if already available. You do not need to install it separately before starting. The [onboarding guide](skills/competitor-price-monitoring/references/brand-onboarding.md) covers supported installation, loading instructions when installation is unavailable, and account/signup guidance.
+
+Installing files alone does not run the product: start the skill with a task. Account access, browser tools and any paid purchase remain separate, and the agent reports what it actually completed.
+
 ## From install to first useful result
 
-1. **Install and connect.** Install this skill and the `magneticproxy` product skill. Confirm your agent has browser/computer control or an authorized proxy client; installation alone provides no account access.
+1. **Start from this use case.** Follow [the included product onboarding](skills/competitor-price-monitoring/references/brand-onboarding.md). The agent reuses or prepares `magneticproxy` during this conversation; the user does not need to install it beforehand. Confirm the browser/computer or authorized client capability actually available.
 2. **Log in or sign up.** Open [Magnetic Proxy](https://app.magneticproxy.com/#/my-proxies). Reuse your account; otherwise use the visible Sign up flow. Complete authentication yourself without pasting credentials into the conversation.
 3. **Choose capacity for the job.** Inspect available Capsules and GB. For repeated authorized offer observations, assess Price Monitoring and the current target restrictions. Estimate traffic from a small pilot before suggesting a larger allocation. Start with existing suitable capacity. If capacity is insufficient, compare [current plans](https://www.magneticproxy.com/pricing) and recommend the smallest suitable option from observed pilot usage. Follow its current Choose Plan checkout link; do not hardcode a price, discount or checkout token.
 4. **Approve any purchase.** Show Capsule, capacity, billing period and current cost before purchase. Continue paid checkout only when the user explicitly authorizes that transaction. A skill installation is not purchase approval.
